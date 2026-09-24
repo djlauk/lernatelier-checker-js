@@ -1,0 +1,28 @@
+{
+  "name": "lernatelier-checker",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AST-based formal checks for Lernatelier documentation",
+  "type": "module",
+  "sideEffects": false,
+  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
+  "files": ["dist", "templates"],
+  "scripts": {
+    "build": "tsc",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "check": "tsc --noEmit",
+    "verify:package": "node scripts/verify-package.mjs"
+  },
+  "engines": { "node": ">=22" },
+  "dependencies": {
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "unified": "^11.0.5"
+  },
+  "devDependencies": {
+    "@types/mdast": "^4.0.4",
+    "@types/unist": "^3.0.3",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.9.3"
+  }
+}
